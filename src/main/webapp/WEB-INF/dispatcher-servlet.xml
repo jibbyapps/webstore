@@ -14,8 +14,8 @@
 
 
     </bean>
-
-
+<!-- for style files-->
+<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
 
 
