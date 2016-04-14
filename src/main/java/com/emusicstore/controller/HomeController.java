@@ -22,11 +22,22 @@ public class HomeController {
     @RequestMapping("/")
     public String home(){return "home";}
 
+//    @RequestMapping("/productList")
+//    public String getProducts(Model model){ //functioun with model parametr which will be attached when you use he list
+//        List<Product> productList = productDao.getProductList(); //imported list package
+//        Product product = productList.get(0); //getting our product from the list, we have only 1 so index=0
+//        model.addAttribute(product);  //bind the product to the model, bind the data from the dao to the model to the view
+//
+//        return "productList";
+//
+//    }
+
+
     @RequestMapping("/productList")
     public String getProducts(Model model){ //functioun with model parametr which will be attached when you use he list
-        List<Product> productList = productDao.getProductList(); //imported list package
-        Product product = productList.get(0); //getting our product from the list, we have only 1 so index=0
-        model.addAttribute(product);  //bind the product to the model, bind the data from the dao to the model to the view
+        List<Product> products = productDao.getProductList(); //imported list package
+
+        model.addAttribute("products",products);  //bind the products to the model, give the name "products"
 
         return "productList";
 

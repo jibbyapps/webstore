@@ -23,8 +23,32 @@ public class ProductDao {
         product1.setProductManufacturer("Fender");
 
 
+
+        Product product2 = new Product();
+        product2.setProductName("record");
+        product2.setProductCategory("music album");
+        product2.setProductDescription("blink 182");
+        product2.setProductPrice(25);
+        product2.setProductCondition("new");
+        product2.setProductStatus("Active");
+        product2.setUnitInStock(200);
+        product2.setProductManufacturer("EMI");
+
+        Product product3 = new Product();
+        product3.setProductName("speaker");
+        product3.setProductCategory("Accessory");
+        product3.setProductDescription("model 123");
+        product3.setProductPrice(200);
+        product3.setProductCondition("new");
+        product3.setProductStatus("Active");
+        product3.setUnitInStock(100);
+        product3.setProductManufacturer("Shure");
+
+
         productList = new ArrayList<Product>();
         productList.add(product1);
+        productList.add(product2);
+        productList.add(product3);
 
 
 
