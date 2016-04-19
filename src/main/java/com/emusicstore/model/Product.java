@@ -1,9 +1,15 @@
 package com.emusicstore.model;
 
+
+import javax.persistence.Entity;
+
 /**
  * Created by vitaliiromanchenko on 12.04.16.
  */
+
+@Entity
 public class Product {
+    private String productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -13,6 +19,13 @@ public class Product {
     private int unitInStock;
     private String productManufacturer;
 
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
     public String getProductName() {
         return productName;
