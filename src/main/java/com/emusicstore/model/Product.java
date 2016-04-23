@@ -2,6 +2,9 @@ package com.emusicstore.model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by vitaliiromanchenko on 12.04.16.
@@ -9,6 +12,10 @@ import javax.persistence.Entity;
 
 @Entity
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) // product id will be generated automatically
+
     private String productId;
     private String productName;
     private String productCategory;
