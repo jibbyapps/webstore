@@ -94,9 +94,21 @@ public class HomeController {
     public String addProductPost(@ModelAttribute("product") Product product){
         productDao.addProduct(product);
 
-        return "productInventory";
+        return "redirect:/admin/productInventory";
 
     }
+
+
+    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable String id, Model model) {
+
+        productDao.deleteProduct(id);
+        return "redirect:/admin/productInventory";
+
+       // return "productInventory";
+
+    }
+
 
 
 }
