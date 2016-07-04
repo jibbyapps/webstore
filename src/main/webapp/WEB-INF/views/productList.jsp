@@ -8,37 +8,33 @@
             <h1>All products</h1>
             <p class="lead">Check out all the products now</p>
 
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr class="bg-success">
-                    <th>Photo icon</th>
-                    <th>Product name</th>
-                    <th>Category</th>
-                    <th>Condition</th>
-                    <th>Price</th>
-                    <th></th>
+        </div>
 
-                </tr>
-                </thead>
-
-                <c:forEach items="${products}" var="product">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr class="bg-success">
+                <th>Photo Thumb</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Condition</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <c:forEach items="${products}" var="product">
                 <tr>
-                    <td><img src="<c:url value="/resources/images/${product.productId}.png"/>" alt="image"
-                             style="width: 50%"/></td>
+                    <td><img src="<c:url value="/resources/images/${product.productId}.png" /> " alt="image"
+                             style="width:100%"/></td>
                     <td>${product.productName}</td>
                     <td>${product.productCategory}</td>
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice} USD</td>
-                    <td><a href= "<spring:url value="/productList/viewProduct/${product.productId}"/>"
-                        ><span class="glyphicon glyphicon-hand-right"></span></a></td>
+                    <td><a href="<spring:url value="/productList/viewProduct/${product.productId}" />"
+                    ><span class="glyphicon glyphicon-info-sign"></span></a></td>
                 </tr>
+            </c:forEach>
+        </table>
 
-                </c:forEach>
 
-
-
-            </table>
-
-        </div>
         <!-- FOOTER -->
 <%@include file="/WEB-INF/views/template/footer.jsp"%>
