@@ -1,19 +1,27 @@
 package com.emusicstore.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by vitaliiromanchenko on 12.04.16.
  */
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 
+
+    private static final long serialVersionUID = -3532377236419382983L;
+
+
+    //Serializable needs for checkout
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // product id will be generated automatically
 
@@ -33,9 +41,21 @@ public class Product {
     private int unitInStock;
     private String productManufacturer;
 
+
+
+
 ///Transient means that hibirnatye will ignore the file and won't create a space in the tabe for it
 @Transient
     private MultipartFile productImage;
+
+
+
+    //fetch - получать eager - нетерпеливый, стремящийся
+
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
+
 
 
 
@@ -119,5 +139,13 @@ public class Product {
 
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
+    }
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
     }
 }
