@@ -10,7 +10,7 @@
         </div>
 
         <!-- spring form action -->
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post"
+        <form:form action="${pageContext.request.contextPath}/admin/product/editProduct" method="post"
                    commandName="product" enctype="multipart/form-data">
 
 

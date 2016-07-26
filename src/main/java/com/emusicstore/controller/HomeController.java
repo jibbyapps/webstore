@@ -7,10 +7,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.naming.Binding;
@@ -30,16 +27,53 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+
+    @RequestMapping("/")
+    public String home()
+    {
+        return "home";
+    }
+
+    @RequestMapping("/login")
+    public String login(@RequestParam(value = "error", required=false)String error, @RequestParam(value = "logout",
+            required = false)String logout, Model model)
+    {
+        if(error!=null){
+            model.addAttribute("error", "invalid username and password");
+
+        }
+
+        if(logout!=null){
+            model.addAttribute("msg", "You have beeb logged out successfully");
+
+        }
+
+
+
+
+        return "login";
+    }
+
+
+
+
     //define product dao instance
     // private ProductDao productDao = new ProductDao();
 
 //   private Path path;
 
-    @Autowired
-    private ProductDao productDao;
 
-    @RequestMapping("/")
-    public String home(){return "home";}
+    //------------------------
+
+//    @Autowired
+//    private ProductDao productDao;
+//
+//    @RequestMapping("/")
+//    public String home(){return "home";}
+
+
+
+    //------------------------
 
 //    @RequestMapping("/productList")
 //    public String getProducts(Model model){ //functioun with model parametr which will be attached when you use he list
@@ -51,36 +85,38 @@ public class HomeController {
 //
 //    }
 
-
-    @RequestMapping("/productList")
-    public String getProducts(Model model){ //functioun with model parametr which will be attached when you use he list
-       // List<Product> products = productDao.getProductList(); //imported list package
-        List<Product> products = productDao.getAllProducts();
-        model.addAttribute("products",products);  //bind the products to the model, give the name "products"
-
-        return "productList";
-
-    }
-
-
-    @RequestMapping("/contacts")
-    public String contacts(){
-        return "contacts";
-    }
-
+//------------------------
+//    @RequestMapping("/productList")
+//    public String getProducts(Model model){ //functioun with model parametr which will be attached when you use he list
+//       // List<Product> products = productDao.getProductList(); //imported list package
+//        List<Product> products = productDao.getAllProducts();
+//        model.addAttribute("products",products);  //bind the products to the model, give the name "products"
+//
+//        return "productList";
+//
+//    }
+//
+//
+//    @RequestMapping("/contacts")
+//    public String contacts(){
+//        return "contacts";
+//    }
+//------------------------
 
 //   @RequestMapping("/productList/viewProduct")
 //    public String viewProduct() {
 //       return "viewProduct";
 //   }
 
-    @RequestMapping("/productList/viewProduct/{productId}") // <- pass variable
-    public String viewProduct(@PathVariable String productId, Model model) throws IOException {  //@PathVariable grab value from the path {prId}
-        Product product = productDao.getProductById(productId); //using Dao to invoke the funt getPbyId to get Id
-        model.addAttribute(product);
+    //------------------------
+//    @RequestMapping("/productList/viewProduct/{productId}") // <- pass variable
+//    public String viewProduct(@PathVariable String productId, Model model) throws IOException {  //@PathVariable grab value from the path {prId}
+//        Product product = productDao.getProductById(productId); //using Dao to invoke the funt getPbyId to get Id
+//        model.addAttribute(product);
+//
+//        return "viewProduct";
+//    }
 
-        return "viewProduct";
-    }
-
+    //------------------------
 
 }

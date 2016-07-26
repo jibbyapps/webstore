@@ -25,7 +25,7 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // product id will be generated automatically
 
-    private String productId;
+    private int productId;
 
     @NotEmpty(message = "product name must not be null.")
     private String productName;
@@ -57,15 +57,11 @@ public class Product implements Serializable {
     private List<CartItem> cartItemList;
 
 
-
-
-
-
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 

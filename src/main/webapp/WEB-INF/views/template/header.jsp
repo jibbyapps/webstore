@@ -55,7 +55,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<c:url value="/"/>">Home</a></li>
-                        <li><a href="<c:url value="/productList"/> ">Products</a></li>
+                        <li><a href="<c:url value="/product/productList"/> ">Products</a></li>
                         <li><a href="<c:url value="/contacts"/>">Contact</a></li>
 
                     </ul>
