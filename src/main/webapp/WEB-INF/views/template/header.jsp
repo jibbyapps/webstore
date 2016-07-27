@@ -60,7 +60,23 @@
 
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href="<c:url value="/admin"/> ">admin area</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name !=null}">
+                           <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+
+                            <li><a href="<c:url value="/j_spring_security_logout"/>"></a>Logout</li>
+
+                               <c:if test="${pageContext.request.userPrincipal.name !='admin'}">
+                                  <li><a href="<c:url value="/customer/cart"/>">Cart</a> </li>
+                               </c:if>
+
+                               <c:if test="${pageContext.request.userPrincipal.name ='admin'}">
+                                  <li><a href="<c:url value="/admin"/>">Admin</a> </li>
+                               </c:if>
+
+
+                        </c:if>
+                        <li><a href="<c:url value="/login"/> ">Login</a></li>
+                        <li><a href="<c:url value="/register"/> ">Sign up</a></li>
                     </ul>
 
                         <%--
