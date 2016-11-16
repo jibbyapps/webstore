@@ -9,7 +9,7 @@
                 <div class="container">
                     <h1>Cart</h1>
 
-                    <p>All the selected products in your shopping cart!!</p>
+                    <p>All the selected products in your shopping cart</p>
                 </div>
             </div>
         </section>
@@ -19,6 +19,9 @@
                 <div>
                     <a class="btn btn-danger pull-left" ng-click="clearCart()"><span
                             class="glyphicon glyphicon-remove-sign"></span>Clear Cart</a>
+                    <a href="<spring:url value="/order/${cartId}"/>"
+                       class="btn btn-success pull-right"><span class="glyphicon-shopping-cart glyphicon"></span> Check out
+                    </a>
                 </div>
 
                 <table class="table table-hover">
@@ -41,12 +44,12 @@
                         <th></th>
                         <th></th>
                         <th>Grand Total</th>
-                        <th>{{cart.grandTotal}}</th>
+                        <th>{{calGrandTotal()}}</th>
                         <th></th>
                     </tr>
                 </table>
 
-                <a href="<spring:url value="/productList" />" class="btn btn-default">Continue Shopping</a>
+                <a href="<spring:url value="/" />" class="btn btn-default">Continue Shopping</a>
             </div>
         </section>
 
